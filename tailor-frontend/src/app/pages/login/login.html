@@ -1,0 +1,92 @@
+<div class="app-wrapper d-block">
+  <div class="main-container">
+    <div class="container">
+      <div class="row sign-in-content-bg">
+        <div class="col-lg-6 image-contentbox d-none d-lg-block">
+          <div class="form-container">
+            <div class="signup-content mt-4">
+              <span><img alt="" class="img-fluid" src="assets/images/logo/1.png"></span>
+            </div>
+            <div class="signup-bg-img">
+              <img alt="" class="img-fluid" src="assets/images/login/01.png">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 form-contentbox">
+          <div class="form-container">
+            <!-- Attach reactive form -->
+            <form class="app-form rounded-control" [formGroup]="form" (ngSubmit)="submit()">
+              <div class="row">
+                <div class="col-12">
+                  <div class="mb-5 text-center text-lg-start">
+                    <h2 class="text-primary-dark f-w-600">Welcome To Borcelle!</h2>
+                    <p>Sign in with your data that you entered during registration</p>
+                  </div>
+                </div>
+
+                <!-- Username -->
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label class="form-label" for="username">Username</label>
+                    <input class="form-control"
+                           id="username"
+                           type="text"
+                           placeholder="Enter Your Username"
+                           formControlName="username">
+                    <small class="text-danger" *ngIf="f['username'].touched && f['username'].invalid">
+                      Username is required (min 4 chars).
+                    </small>
+                  </div>
+                </div>
+
+                <!-- Password -->
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label class="form-label" for="password">Password</label>
+                    <a class="link-primary-dark float-end" routerLink="/forgot-password">Forgot Password?</a>
+                    <input class="form-control"
+                           id="password"
+                           type="password"
+                           placeholder="Enter Your Password"
+                           formControlName="password">
+                    <small class="text-danger" *ngIf="f['password'].touched && f['password'].invalid">
+                      Password is required (min 4 chars).
+                    </small>
+                  </div>
+                </div>
+
+                <!-- Remember me -->
+                <div class="col-12">
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" id="remember" type="checkbox" formControlName="remember">
+                    <label class="form-check-label text-secondary" for="remember">Remember me</label>
+                  </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="col-12">
+                  <div class="mb-3">
+                    <button class="btn btn-light-primary w-100" type="submit" [disabled]="form.invalid">
+                      Sign In
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Sign up -->
+                <div class="col-12">
+                  <div class="text-center text-lg-start">
+                    Don’t have an account?
+                    <a class="link-primary-dark text-decoration-underline" routerLink="/sign-up">Sign up</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!-- end form -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
