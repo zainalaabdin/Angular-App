@@ -1,7 +1,7 @@
-# Ignore node_modules everywhere
+# Ignore node_modules everywhere (any depth)
 **/node_modules/
 
-# Ignore Angular build output
+# Ignore Angular build outputs everywhere
 **/dist/
 **/out-tsc/
 **/tmp/
@@ -13,4 +13,3 @@
 # OS junk files
 .DS_Store
 Thumbs.db
- 
