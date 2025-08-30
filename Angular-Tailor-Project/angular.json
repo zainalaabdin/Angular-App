@@ -22,6 +22,7 @@
               }
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css",
               "src/assets/libs/jsvectormap/jsvectormap.min.css",
               "src/assets/css/bootstrap.min.css",
@@ -32,15 +33,11 @@
               "node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
             ],
             "scripts":[
-              "src/assets/js/layout.js",
-              "src/assets/libs/bootstrap/js/bootstrap.bundle.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/assets/libs/simplebar/simplebar.min.js",
               "src/assets/libs/node-waves/waves.min.js",
               "src/assets/js/pages/plugins/lord-icon-2.1.0.js",
               "src/assets/libs/feather-icons/feather.min.js",
-              "src/assets/js/plugins.js",
-              "src/assets/libs/particles.js/particles.js",
-              "src/assets/js/pages/particles.app.js",
               "src/assets/js/pages/password-addon.init.js"
             ],
             "server": "src/main.server.ts",

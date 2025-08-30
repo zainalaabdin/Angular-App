@@ -4,25 +4,40 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, Validators, FormGroup } 
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import Toastify from 'toastify-js';
+import { AuthService } from '../../services/AuthService';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'login',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule],
   templateUrl: './login.html',
   styleUrls: ['./login.css']
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;
-  errorMessage = '';   // ✅ make sure this exists
+  errorMessage = '';
+  checkingAuth = true;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService) { 
+
+  }
 
   ngOnInit(): void {
+
+    this.authService.checkAuthStatus().subscribe((isAuth: boolean) => {
+      this.checkingAuth = false;
+      if (isAuth) {
+        this.router.navigate(['/dashboard']);
+      }else{
+        this.checkingAuth = false;
+      }
+    });
+
     this.form = this.fb.group({
-      username: ['', [Validators.required]],  // ✅ matches HTML
-      password: ['', [Validators.required]],  // ✅ matches HTML
-      remember: [false]                       // ✅ matches HTML
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      remember: [false]
     });
   }
 

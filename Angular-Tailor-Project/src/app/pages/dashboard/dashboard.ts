@@ -12,4 +12,16 @@ import { RouterOutlet } from '@angular/router';
 })
 export class DashboardComponent {
 
+   ngAfterViewInit(): void {
+    this.loadScript('assets/js/app.js');
+  }
+
+  loadScript(scriptPath: string){
+    // Dynamically load your big external script only here
+    const script = document.createElement('script');
+    script.src = scriptPath;  // your big code
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+
 }

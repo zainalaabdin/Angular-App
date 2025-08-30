@@ -1,3 +1,7 @@
+@if (checkingAuth) {
+  <p>Checking authentication...</p> <!-- Or use a spinner -->
+} @else {
+
 <div class="auth-page-wrapper pt-5">
         <!-- auth page bg -->
         <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
@@ -127,3 +131,5 @@
         </div>
         <!-- end auth page content -->
     </div>
+
+  }
